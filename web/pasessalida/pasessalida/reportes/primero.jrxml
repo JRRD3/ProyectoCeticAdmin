@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="primero" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="47"/>
+	<parameter name="id_pase" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="usuario" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     cat_empleados.`segundoApellido` AS cat_empleados_segundoApellido,
+     cat_empleados.`primerApellido` AS cat_empleados_primerApellido,
+     cat_empleados.`nombres` AS cat_empleados_nombres,
+     pases.`id_pase` AS pases_id_pase,
+     pases.`fecha` AS pases_fecha,
+     pases.`tipo` AS pases_tipo,
+     pases.`hr_salida` AS pases_hr_salida,
+     pases.`hr_llegada` AS pases_hr_llegada,
+     pases.`observaciones` AS pases_observaciones
+FROM
+     `usuario` INNER JOIN `cat_empleados` INNER JOIN `pases`
+WHERE
+     usuario.username = $P{usuario} and pases.id_solicitante = usuario.id and usuario.rfc = cat_empleados.rfc and pases.autorizado = "1" and pases.hr_llegada != "null" and pases.hr_salida != "null" and pases.id_pase in ($P!{id_pase})]]>
+	</queryString>
+	<field name="cat_empleados_segundoApellido" class="java.lang.String"/>
+	<field name="cat_empleados_primerApellido" class="java.lang.String"/>
+	<field name="cat_empleados_nombres" class="java.lang.String"/>
+	<field name="pases_id_pase" class="java.lang.Integer"/>
+	<field name="pases_fecha" class="java.sql.Date"/>
+	<field name="pases_tipo" class="java.lang.String"/>
+	<field name="pases_hr_salida" class="java.sql.Time"/>
+	<field name="pases_hr_llegada" class="java.sql.Time"/>
+	<field name="pases_observaciones" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="157" y="28" width="226" height="21"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE PASES DE SALIDA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="18" y="28" width="125" height="42"/>
+				<imageExpression><![CDATA["C:\\Users\\JR\\Desktop\\CETIC-Logo-2.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="425" y="10" width="90" height="60"/>
+				<imageExpression><![CDATA["C:\\Users\\JR\\Desktop\\gobierno-del-estado-de-mich.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="4" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA REPORTE:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="117" y="4" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="0" width="107" height="23"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cat_empleados_nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="0" width="44" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cat_empleados_primerApellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="0" width="53" height="23"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cat_empleados_segundoApellido}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="38" height="36"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pase Número]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="1" width="35" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="149" y="0" width="31" height="36"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="0" width="37" height="36"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="0" width="42" height="36"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Llegada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="0" width="42" height="36"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motivo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="16" y="0" width="45" height="29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pases_id_pase}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="67" y="1" width="68" height="29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pases_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="0" width="53" height="29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pases_tipo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm.ss a">
+				<reportElement x="280" y="0" width="63" height="29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pases_hr_llegada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="1" width="177" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pases_observaciones}]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm.ss a">
+				<reportElement x="202" y="0" width="59" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pases_hr_salida}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="60" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

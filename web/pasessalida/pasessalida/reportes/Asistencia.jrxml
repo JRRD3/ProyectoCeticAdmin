@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Asistencia" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="167"/>
+	<parameter name="usuario" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[0000-00-00]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     asistencias.`fecha` AS asistencias_fecha,
+     asistencias.`hora` AS asistencias_hora,
+     asistencias.`tipo` AS asistencias_tipo,
+     asistencias.`idnominaemp` AS asistencias_idnominaemp,
+     cat_empleados.`ur` AS cat_empleados_ur,
+     cat_empleados.`primerApellido` AS cat_empleados_primerApellido,
+     cat_empleados.`segundoApellido` AS cat_empleados_segundoApellido,
+     cat_empleados.`nombres` AS cat_empleados_nombres
+FROM asistencias inner join cat_empleados inner join usuario
+
+WHERE
+     usuario.username = $P{usuario}  and usuario.rfc = cat_empleados.rfc and cat_empleados.idcat_empleados = asistencias.idnominaemp and asistencias.fecha in ($P!{fecha})]]>
+	</queryString>
+	<field name="asistencias_fecha" class="java.sql.Date"/>
+	<field name="asistencias_hora" class="java.sql.Time"/>
+	<field name="asistencias_tipo" class="java.lang.String"/>
+	<field name="asistencias_idnominaemp" class="java.lang.Integer"/>
+	<field name="cat_empleados_ur" class="java.lang.Integer"/>
+	<field name="cat_empleados_primerApellido" class="java.lang.String"/>
+	<field name="cat_empleados_segundoApellido" class="java.lang.String"/>
+	<field name="cat_empleados_nombres" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="189" y="17" width="189" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTA DE ASISTENCIA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="13" y="8" width="132" height="45"/>
+				<imageExpression><![CDATA["C:\\Users\\JR\\Desktop\\CETIC-Logo-2.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="427" y="0" width="103" height="65"/>
+				<imageExpression><![CDATA["C:\\Users\\JR\\Desktop\\Fotolia_62925823_XS.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="0" width="69" height="56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="87" y="0" width="128" height="56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cat_empleados_nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="0" width="76" height="56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cat_empleados_primerApellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="0" width="62" height="56"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cat_empleados_segundoApellido}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="0" width="60" height="45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. EMPLEADO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="0" width="44" height="45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UR:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="0" width="38" height="45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="1" width="58" height="45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="1" width="58" height="44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORA:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="497" y="0" width="58" height="39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{asistencias_tipo}.equals("R")) || ($F{asistencias_tipo}.equals("EP"))? "Entrada": "Salida"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="2" width="44" height="37"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cat_empleados_ur}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="253" y="0" width="100" height="35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencias_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="1" width="52" height="37"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencias_idnominaemp}]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement x="368" y="3" width="100" height="36"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{asistencias_hora}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="51" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="39" splitType="Stretch"/>
+	</summary>
+</jasperReport>

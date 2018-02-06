@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+  <!--<mapping path="/index.jsp" exclude="true" decorator="/decoradores/decoradorPrincipal.jsp"/>-->
+  
+  <mapping path="/administrador/editaUsuario/editarUsuario.jsp" decorator="/administrador/decoradores/decoradorPrincipal1.jsp"/>
+  <mapping path="/administrador/usuario/usuarios.jsp" decorator="/administrador/decoradores/decoradorPrincipal.jsp"/>
+  <mapping path="/administrador/usuario/nuevoUsuario.jsp" decorator="/administrador/decoradores/decoradorPrincipal1.jsp"/>
+  <mapping path="/administrador/usuario/editarUsuario.jsp" decorator="/administrador/decoradores/decoradorPrincipal1.jsp"/>
+  
+  <mapping path="/pasessalida/*" decorator="/administrador/decoradores/decoradorPrincipal.jsp"/>
+  <mapping path="/pasessalida/Acciones.jsp" decorator="/administrador/decoradores/decoradorPrincipal1.jsp"/>
+</sitemesh>

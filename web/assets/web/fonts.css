@@ -1,0 +1,40 @@
+/*font-family:'oswald',sans-serif;*/
+@font-face {
+    font-family: 'eurekasans-boldcapsregular';
+    src: url('/padronBeneficiarios/assets/web/font/EuSnBdSc/EuSnBdSc-webfont.eot');
+    src: url('/padronBeneficiarios/assets/web/font/EuSnBdSc/EuSnBdSc-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/padronBeneficiarios/assets/web/font/EuSnBdSc/EuSnBdSc-webfont.woff2') format('woff2'),
+         url('/padronBeneficiarios/assets/web/font/EuSnBdSc/EuSnBdSc-webfont.woff') format('woff'),
+         url('/padronBeneficiarios/assets/web/font/EuSnBdSc/EuSnBdSc-webfont.ttf') format('truetype'),
+         url('/padronBeneficiarios/assets/web/font/EuSnBdSc/EuSnBdSc-webfont.svg#eurekasans-boldcapsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*font-family:"Oswald",sans-serif;*/
+@font-face {
+    font-family: 'eurekasans-lightregular';
+    src: url('/padronBeneficiarios/assets/web/font/EuSnLt/EuSnLt-webfont.eot');
+    src: url('/padronBeneficiarios/assets/web/font/EuSnLt/EuSnLt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/padronBeneficiarios/assets/web/font/EuSnLt/EuSnLt-webfont.woff2') format('woff2'),
+         url('/padronBeneficiarios/assets/web/font/EuSnLt/EuSnLt-webfont.woff') format('woff'),
+         url('/padronBeneficiarios/assets/web/font/EuSnLt/EuSnLt-webfont.ttf') format('truetype'),
+         url('/padronBeneficiarios/assets/web/font/EuSnLt/EuSnLt-webfont.svg#eurekasans-lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/* font-awesome.min.css - FontAwesome*/
+/* font-family:'PT Sans',sans-serif; font-size:+2px;*/
+@font-face {
+    font-family: 'eurekasans-regularregular';
+    src: url('/padronBeneficiarios/assets/web/font/EuSnRg/EuSnRg-webfont.eot');
+    src: url('/padronBeneficiarios/assets/web/font/EuSnRg/EuSnRg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/padronBeneficiarios/assets/web/font/EuSnRg/EuSnRg-webfont.woff2') format('woff2'),
+         url('/padronBeneficiarios/assets/web/font/EuSnRg/EuSnRg-webfont.woff') format('woff'),
+         url('/padronBeneficiarios/assets/web/font/EuSnRg/EuSnRg-webfont.ttf') format('truetype'),
+         url('/padronBeneficiarios/assets/web/font/EuSnRg/EuSnRg-webfont.svg#eurekasans-regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

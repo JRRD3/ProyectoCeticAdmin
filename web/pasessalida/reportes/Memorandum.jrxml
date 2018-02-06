@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Memorandum" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="42"/>
+	<property name="ireport.y" value="255"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#A9A9A9">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Table Dataset 1"/>
+	<subDataset name="Table Dataset 2"/>
+	<subDataset name="Table Dataset 3"/>
+	<parameter name="usuario" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="faltas" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="retardos" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="numero" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="numero2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="extraordinarias" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="numero3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="limite" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select concat(primerApellido,' ', segundoApellido, ' ',nombres), titulo from cat_empleados inner join titulos where cat_empleados.id_titulo = titulos.id_titulo and $P{usuario} =  concat(primerApellido,' ', segundoApellido, ' ',nombres);]]>
+	</queryString>
+	<field name="concat(primerApellido,&apos; &apos;, segundoApellido, &apos; &apos;,nombres)" class="java.lang.String"/>
+	<field name="titulo" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="101" y="150" width="851" height="510"/>
+				<imageExpression><![CDATA["C:\\Users\\JR\\Documents\\NetBeansProjects\\ceticAdmin\\web\\pasessalida\\imagenes\\gobierno del estado de michocan.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement x="117" y="46" width="338" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Gobierno del Estado de Michoacán.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="8" width="338" height="18"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Centro Estatal de Tecnologías de Información]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="26" width="338" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[y Comunicaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="66" width="338" height="14"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2015-2021]]></text>
+			</staticText>
+			<image>
+				<reportElement x="23" y="8" width="94" height="80"/>
+				<imageExpression><![CDATA["C:\\Users\\JR\\Documents\\NetBeansProjects\\ceticAdmin\\web\\pasessalida\\imagenes\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="198" y="4" width="215" height="36"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Leelawadee UI Semilight" size="14" isBold="true"/>
+					<paragraph lineSpacing="1_1_2" leftIndent="20" rightIndent="20" spacingBefore="1" spacingAfter="1"/>
+				</textElement>
+				<text><![CDATA[M E M O R Á N D U M]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="349" splitType="Stretch">
+			<staticText>
+				<reportElement x="293" y="9" width="137" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Morelia; Michoacán a]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="427" y="9" width="128" height="26"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd' de 'MMMM' de 'yyyy").format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="18" y="87" width="495" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE PROYECTOS DE DESARROLLO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="147" width="536" height="18"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Por medio de la presente se hace de su conocimiento que se procederá a efectuar el]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="165" width="424" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[descuento vía nómina por concepto de incidencias ocurridas durante el mes de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="185" width="532" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[conformidad con lo siguiente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="190" y="228" width="138" height="20" forecolor="#384B7E" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="361" y="249" width="194" height="21" forecolor="#4E6ED1" backcolor="#D7F3F3"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[FALTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="361" y="269" width="194" height="21" forecolor="#4E6ED1" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[RETARDOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="361" y="290" width="194" height="20" forecolor="#4E6ED1" backcolor="#D7F3F3"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CHECAR 1/2 HORA DESPUÉS DE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="361" y="305" width="194" height="20" forecolor="#4E6ED1" backcolor="#D7F3F3"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[LA HORA DE ENTRADA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="24" y="249" width="166" height="21" forecolor="#4E6ED1"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{faltas}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="23" y="270" width="167" height="20" forecolor="#4E6ED1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{retardos}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="190" y="248" width="171" height="22" forecolor="#4E6ED1" backcolor="#D7F3F3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numero}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="190" y="269" width="171" height="21" forecolor="#4E6ED1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{numero2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="23" y="290" width="167" height="35" forecolor="#4E6ED1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="37" y="47" width="478" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concat(primerApellido,' ', segundoApellido, ' ',nombres)}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="47" width="18" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="534" y="165" width="22" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="107" width="495" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P R E S E N T E]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="24" y="228" width="166" height="20" forecolor="#384B7E" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[DIAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="361" y="228" width="194" height="20" forecolor="#384B7E" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CONCEPTO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="24" y="248" width="531" height="1" forecolor="#4E6ED1" backcolor="#FFFFFF"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="361" y="325" width="194" height="20" forecolor="#4E6ED1" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[NO CHECAR ENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="190" y="325" width="171" height="20" forecolor="#4E6ED1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="23" y="325" width="167" height="20" forecolor="#4E6ED1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<line>
+				<reportElement x="189" y="249" width="1" height="96" forecolor="#4E6ED1"/>
+			</line>
+			<textField>
+				<reportElement mode="Opaque" x="190" y="290" width="171" height="35" forecolor="#4E6ED1" backcolor="#D7F3F3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{numero3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="23" y="290" width="166" height="35" forecolor="#4E6ED1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{extraordinarias}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMM" isBlankWhenNull="false">
+				<reportElement x="442" y="165" width="92" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("MMMM").format(new java.util.Date()).toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="67" width="494" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titulo}.toUpperCase()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="24" width="67" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[notificación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="44" width="541" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[conducente.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="2" width="541" height="22"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[No omito informar a usted que cuenta con 5 días hábiles contados a partir del día siguiente de esta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="24" width="390" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[para que presenten las aclaraciones que correspondan  y se resuelva lo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="80" width="540" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Sin otro particular, agradezco la atención a la presente.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="77" y="24" width="86" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{limite}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="221" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="7" width="127" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATENTAMENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="50" width="214" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[La. Yuritzi Hernández Rodrígez]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="69" width="342" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jefe de Departamento Finanzas y Contabilidad del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="88" width="342" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Centro Estatal de Tecnologías de Información]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="107" width="342" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comunicaciones.]]></text>
+			</staticText>
+			<image scaleImage="RealSize" hAlign="Center" vAlign="Bottom" isUsingCache="true">
+				<reportElement mode="Transparent" x="189" y="126" width="191" height="95"/>
+				<imageExpression><![CDATA["C:\\Users\\JR\\Documents\\NetBeansProjects\\ceticAdmin\\web\\pasessalida\\imagenes\\michoacan-esta-en-ti-logo-0FA0096ECA-seeklogo.com.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>
